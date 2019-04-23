@@ -6,6 +6,7 @@
 \usepackage{cite,enumerate,float,indentfirst}
 \usepackage{hepunits}
 \usepackage{tikz}
+\usepackage{beamerthemesplit}
 \usetikzlibrary{arrows,shapes,backgrounds,decorations.pathmorphing}
 
 \usepackage{graphicx}
@@ -19,6 +20,15 @@
 \usecolortheme[RGB={4,130,212}]{structure}
 \setbeamercolor{footline}{fg=DESYBlue}
 \setbeamercolor{section in head/foot}{fg=white, bg=black}
+
+\newcommand{\backupbegin}{
+	\newcounter{finalframe}
+	\setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+	\setcounter{framenumber}{\value{finalframe}}
+}
+
 \setbeamertemplate{footline}{
   \leavevmode%
   \hbox{%
@@ -72,9 +82,28 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{\large{Система измерения энергии методом резонансной деполяризации}}
+\frametitle{Метод резонансной деполяризации}
+	\vspace{30pt}
+	\begin{columns}
+		\column{0.4\textwidth}
+		\begin{minipage}[t][1\textheight]{\linewidth}
+				\small{\flushleft	Впервые реализован в ИЯФ~СO~РАН в 1974 г. 
+				\begin{itemize}
+					\item $\Delta E/E \geqslant 10^{-6}$
+					\item $\Omega = \omega_s \biggl(1+ \gamma \cfrac{\mu'}{\mu}\biggr)$
+					\item Условие резонанса: $\omega_d \pm k \omega_s = \Omega$
+					\item Измеряем: $\Delta y = \cfrac{\omega_0}{2m_e}PL\Delta V$
+				\end{itemize}}
+		\end{minipage}%
+		\column{0.6\linewidth}
+		\begin{minipage}[t][1\textheight]{\linewidth}
+			\begin{picture}(10,10)(0,120)
+				\includegraphics[width=1\linewidth]{mrd-lsrp.png}
+			\end{picture}
+		\end{minipage}%
+	\end{columns}
 	\begin{center}
-		\includegraphics[width=0.8\linewidth]{mrd-touschek-lsrp.png}\\
+		
 	\end{center}
 \end{frame}
 
@@ -160,7 +189,6 @@
 				\item \textit{Уровень шумов:} шумы АЦП, кросс-токи, сторонние наводки
 				\item  \textit{Коэффициент усиления:} напряжение на GEM, геометрия усиливающей структуры
 				\item  \textit{Пространственное разрешение:} геометрия считывающей структуры 
-				\item  \textit{Временное разрешение:} размеры детектора, характеристики АЦП
 		\end{itemize}
 \end{frame}
 
@@ -173,9 +201,9 @@
 	Технические особенности:
 	\begin{minipage}[t][1\textheight]{\linewidth}
 		\small{\begin{itemize}
-				\item Одномерная считывающая структура $\Rightarrow$ однозначное определение координаты трека
+				\item двумерная считывающая структура $\Rightarrow$ однозначное определение координаты трека
 				\item 10 вычитывающих плат по 100-120 каналов в каждой $\Rightarrow$ одновременное вычитывание события
-			
+				\item $N_{exp} \sim 10~\gamma /flash$
 				
 		\end{itemize}}
 	\end{minipage}%
@@ -206,17 +234,18 @@
 \begin{columns}
 	\column{0.5\textwidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
+		\vspace{10pt}
 		\small{\begin{itemize}
 				\item Наличие шумящих каналов
-				\item Cдвиг нуля у АЦП (у каждого свой)
+				\item Cдвиг нулевого уровня у АЦП
 				\item Имеют место флуктуации среднего по кадру
 				\item Уровень шумов: $\sigma_n \approx 16$~Ch
 		\end{itemize}}
 	\end{minipage}%
 	\column{0.5\linewidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
-		\vspace*{21pt}
-		\hspace*{5pt}
+		\vspace*{8pt}
+		\hspace*{5.5pt}
         \includegraphics[width=0.915\linewidth]{Noise_no_filtering_hist.png}
 	\end{minipage}
 \end{columns}
@@ -233,8 +262,8 @@
 	\column{0.6\linewidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
 	\vspace*{30pt}
-	\includegraphics[width=1\linewidth]{Noise2voltage.pdf}
-	\\ \centering \small{$\sigma_{n} \approx 15.3 Ch = 5661 e^{-}$}
+	\includegraphics[width=1\linewidth]{Noise_time_drift.pdf}
+	\\ \centering \small{$\sigma_{n} \approx 15.3 Ch = 5660 e^{-}$}
 	\end{minipage}
 \end{columns}
 \end{frame}
@@ -404,12 +433,6 @@
 \end{frame}
 
 \begin{frame}[t]
-\frametitle{Влияние медианного алгоритма}
-\vspace*{10pt}
-\centering \includegraphics[ width=0.9\linewidth]{Cluster_ch_hist.pdf}
-\end{frame}
-
-\begin{frame}[t]
 \frametitle{Зависимость коэффициента усиления от напряжения}
 \vspace*{10pt}
 \centering \includegraphics[ width=0.75\linewidth]{Ampl_gr_log.pdf}
@@ -429,7 +452,7 @@
 	\column{0.5\linewidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
 		\vspace*{30pt}
-		\centering \includegraphics[ width=1\linewidth]{Ampl_gr_log.pdf}
+		\center \includegraphics[ width=1\linewidth]{Ampl_gr_log.pdf}
 	\end{minipage}%
 \end{columns}
 \end{frame}
@@ -447,7 +470,7 @@
 Спасибо за внимание!
 \end{center}
 \end{frame}
-
+\backupbegin
 \begin{frame}
 \frametitle{Backup: пьедесталы АЦП}
 \begin{center}
@@ -456,10 +479,15 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Backp: план выполнения работ}
+\frametitle{Backup: план выполнения работ}
 \begin{center}
 	\includegraphics[ width=0.9\linewidth]{schedule.png}
 \end{center}
 \end{frame}
-
+\begin{frame}[t]
+\frametitle{Backup: Влияние медианного алгоритма}
+\vspace*{10pt}
+\centering \includegraphics[ width=0.9\linewidth]{Cluster_ch_hist.pdf}
+\end{frame}
+\backupend
 \end{document} 
