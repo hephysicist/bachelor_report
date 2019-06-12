@@ -16,7 +16,9 @@
 \definecolor{calmRed}{rgb}{0.82, 0.1, 0.26}
 \definecolor{calmGreen}{rgb}{0.0, 0.65, 0.31}
 \definecolor{DESYBlue}{RGB}{0,159,223}
+\definecolor{gray}{RGB}{127,127,127}
 \usetheme{Madrid}
+\usefonttheme[onlymath]{serif}
 \usecolortheme[RGB={4,130,212}]{structure}
 \setbeamercolor{footline}{fg=DESYBlue}
 \setbeamercolor{section in head/foot}{fg=white, bg=black}
@@ -51,7 +53,7 @@
 \emph{Докладчик:}~Степан Алексеевич Захаров\\%
 \emph{Научный руководитель:}~к.ф.-м.н.~Иван~Борисович~Николаев\\%
 \emph{Научный консультант:}~д.ф.-м.н.~Лев~Исаевич~Шехтман}}
-\date{\small{26.04.2019}}
+\date{\small{13.06.2019}}
 
 \tikzstyle{every picture}+=[remember picture]
 \tikzstyle{na} = [baseline=-.5ex]
@@ -90,8 +92,8 @@
 				\small{\flushleft	Впервые реализован в ИЯФ~СO~РАН в 1974 г. 
 				\begin{itemize}
 					\item $\Delta E/E \geqslant 10^{-6}$
-					\item $\Omega = \omega_s \biggl(1+ \gamma \cfrac{\mu'}{\mu}\biggr)$
-					\item Условие резонанса: $\omega_d \pm k \omega_s = \Omega$
+					\item $\omega_r = \omega_s \biggl(1+ \gamma \cfrac{\mu'}{\mu}\biggr)$
+					\item Условие резонанса: $\omega_s  = k \omega_r \pm \omega_d$
 					\item Измеряем: $\Delta y = \cfrac{\omega_0}{2m_e}PL\Delta V$
 				\end{itemize}}
 		\end{minipage}%
@@ -148,16 +150,12 @@
 
 \begin{frame}
 \frametitle{Газовые электронные умножители (GEM)}
-\begin{center}
-	\begin{minipage}[h]{0.49\linewidth}
-		\includegraphics[width=1\linewidth]{GEM_microphoto.png}
-	\end{minipage}
-	\begin{minipage}[h]{0.49\linewidth}
-		\includegraphics[width=1\linewidth]{GEM_crossec.jpg}
-	\end{minipage}
-	\tiny{Рисунки из статьи: F. Sauli, The gas electron multiplier (GEM): Operating principles and applications, 2016}
-	
-\end{center}
+	\begin{minipage}[t][0.6\textheight]{\linewidth}
+		\centering
+		\includegraphics[width=0.6\textwidth]{GEM_microphoto.png}
+		
+	\end{minipage}%
+\newline \centering	\tiny{Рисунок из статьи: F. Sauli, The gas electron multiplier (GEM): Operating principles and applications, 2016}	
 \end{frame}
 
 \begin{frame}[t]
@@ -176,19 +174,22 @@
 \end{minipage}%
 \column{0.5\linewidth}
 \begin{minipage}[t][1\textheight]{\linewidth}
+	\hspace{1.5cm}\includegraphics[width=0.65\linewidth]{GEM_field.pdf}\\
+	\centering \tiny{Моделирование распределения электрического поля в отверсии GEM}
+	\vspace{-10pt}
 	\center \includegraphics[width=0.9\linewidth]{GEM_scheme.pdf}
-	\vspace*{0pt}
-	\center \includegraphics[width=0.6\linewidth]{GEM_field.pdf}	
+	\centering \tiny{Принципиальная схема GEM детектора}
 \end{minipage}%
 \end{columns}
 \end{frame}
 
 \begin{frame}[t]
-\frametitle{Ключевые параметры детектора для лазерного поляриметра}
+\frametitle{Ключевые параметры детектора для <<Лазерного поляриметра>>}
 		\begin{itemize}
-				\item \textit{Уровень шумов:} шумы АЦП, кросс-токи, сторонние наводки
-				\item  \textit{Коэффициент усиления:} напряжение на GEM, геометрия усиливающей структуры
-				\item  \textit{Пространственное разрешение:} геометрия считывающей структуры 
+				\item \color{gray}{\textit{Уровень шумов:} шумы АЦП, кросс-токи, сторонние наводки}
+				\item  \color{gray}{\textit{Коэффициент усиления:} напряжение на GEM, геометрия усиливающей структуры}
+				\item  \color{black}{\textit{Эффективность регистрации:} напряжение на GEM, размеры чувствительной области
+				\item  \textit{Пространственное разрешение:} геометрия регистрирующей структуры, напряжение на GEM}
 		\end{itemize}
 \end{frame}
 
@@ -204,52 +205,54 @@
 		\includegraphics[width=1\linewidth, height = 0.4\textheight]{GEM_model.pdf}
 		\tiny{Расположение электродов и считывающей структуры}
 		\includegraphics[width=1\linewidth]{Main_board.jpg} 
-		\newline \centering\tiny{Главная плата}
+		\newline \centering\tiny{Плата со считывающей структурой}
 		\end{minipage}	
 \end{frame}
+\begin{frame}[t]
 
-\begin{frame}[c]
-\frametitle{Определение уровня шумов детектора}
-	\includegraphics[width=1\linewidth]{Noise_no_filtering.png}
-	 \hspace*{20pt}\tiny{0--59 --- Чип 1}\hspace*{30pt}\tiny{68--127 --- Чип 2}
-\end{frame}
-
-\begin{frame}[c]
-\frametitle{Первичные наблюдения}
-\vspace{10pt}
+\frametitle{Организация системы сбора данных }
 \begin{columns}
-	\column{0.5\textwidth}
+	\column{0.6\textwidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
-		\vspace{10pt}
+		\centering \includegraphics[width=6.6cm, height = 4cm]{DAQ.pdf}
 		\small{\begin{itemize}
-				\item Наличие шумящих каналов
-				\item Cдвиг нулевого уровня у АЦП
-				\item Имеют место флуктуации среднего по кадру
-				\item Уровень шумов: $\sigma_n \approx 16$~Ch
+				\item Одно событие: 128\,каналов\,$\times$\,100\,кадров 
+				\item 1 файл --- $10^4$~событий (640 MB)
 		\end{itemize}}
 	\end{minipage}%
-	\column{0.5\linewidth}
+	\column{0.4\linewidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
-		\vspace*{8pt}
-		\hspace*{5.5pt}
-        \includegraphics[width=0.915\linewidth]{Noise_no_filtering_hist.png}
-	\end{minipage}
-\end{columns}
-\end{frame}
+		\vspace{20pt}
+		\centering \includegraphics[width=5cm, height = 5cm]{Signal.png}
+		\centering \tiny{Монитор события}
+		
+	\end{minipage}%
+\end{columns}\end{frame}
+
 \begin{frame}[c]
 \frametitle{Измерение уровня шумов}
 \vspace{10pt}
 \begin{columns}
 	\column{0.4\textwidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
-		\vspace*{38pt}
 		\includegraphics[width=1\linewidth]{Noise_stat.pdf}
+		\vspace{15pt}
+	 	\\ \centering \small{$ \sigma_{n} \approx 15.4~Ch = 5700 e^{-}$}
+	 	\vspace{10pt}
+	 	\\ \centering \small{$ \displaystyle \frac{\delta(\sigma_{n})}{\sigma_{n}} = 0.01 $}
 	\end{minipage}%
 	\column{0.6\linewidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
-	\vspace*{30pt}
-	\includegraphics[width=1\linewidth]{Noise_time_drift.pdf}
-	\\ \centering \small{$\sigma_{n} \approx 15.4 Ch = 5700 e^{-}$}
+	\begin{center}
+	\vspace{-10pt}
+	\includegraphics[width=0.7\linewidth]{Mean_time_drift.pdf}
+	\\ \hspace{10pt}\tiny{Дрейф среднего значения шумов}\\
+	\vspace{5pt}
+	\includegraphics[width=0.7\linewidth]{Noise_time_drift.pdf}
+	\\ \hspace{10pt}\tiny{Дрейф уровня шумов}
+
+	\end{center}
+	
 	\end{minipage}
 \end{columns}
 \end{frame}
@@ -270,160 +273,63 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
 \frametitle{Механизм газового усиления}
 \begin{minipage}[h]{0.49\linewidth}
-	\includegraphics[width=1\linewidth]{Gas_discharge_gr.png}
+	\small
+\begin{itemize}
+	\item Условие возникновения: $E_e \gtrsim W_I$
+	\item Количество первичной ионизации: $n_{0} = \cfrac{\Delta E}{W_I}$
+	\item Количество зарегистрированного заряда: $n_{tot} = \epsilon n_{0}  e^{\alpha x}$
+	\item Коэффициент газового усиления: $K = \cfrac{n_{tot}}{n_{0}}$
+\end{itemize}
 \end{minipage}
 \begin{minipage}[h]{0.49\linewidth}
-	\includegraphics[width=1\linewidth]{Electron_avalanche.pdf}
-	\newline
-	\newline \footnotesize{Условие возникновения: $E_e \gtrsim W_I$}
-	\newline (Не путать $W_I$ c $I$)
+	\centering 
+	\includegraphics[width=0.8\linewidth]{Electron_avalanche.pdf}
+	\includegraphics[width=0.8\linewidth]{Gas_discharge_gr.png}
+
 \end{minipage}
 \end{frame}
 
-\begin{frame}[t]
-\frametitle{Коэффициент газового усиления}
-\vspace{0pt}
-\begin{columns}
-\column{0.5\textwidth}
-\begin{minipage}[t][1\textheight]{\linewidth}
-	\small{
-		\vspace*{30pt}
-		\begin{itemize}
-			\item Количество первичной ионизации: $n_{0} = \cfrac{\Delta E}{W_I}$
-			\item $n_{tot} = n_{0} e^{\alpha x}$
-			\item $\displaystyle n_{tr} = n_{tot} \epsilon = n_{0}\color{red}{K}$
-		\end{itemize}
-		Для GEM прозрачность можно определить как: 
-		$\epsilon = \cfrac{\pi d^2}{2\sqrt{3}p^2}\cfrac{E_{ext}}{E_{hole}}$
-	}
-\end{minipage}%
-\column{0.5\linewidth}
-\begin{minipage}[t][1\textheight]{\linewidth}
-	\vspace*{40pt}
-	\center \includegraphics[width=0.9\linewidth]{Electron_avalanche.pdf}
-\end{minipage}%
-\end{columns}
-\end{frame}
 
-\begin{frame}[t]
+\begin{frame}[c]
 \frametitle{Измерение коэффициента усиления GEM}
 \vspace{0pt}
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.6\textwidth}
+\vspace{10pt}
 \begin{minipage}[t][1\textheight]{\linewidth}
 \small{\begin{itemize}
-		\item $Sr-90$ в качестве источника первичной ионизации
-		\item Регистрировались кластеры в центральной области под источником
-		\item Знаем  $N_{e^-}$ первичной ионизации $\Rightarrow Q_{0}$ 
-		\item Измерив $\langle Q\rangle$ кластера, можем найти $K$
+		\item $\mathrm{^{90}Sr}$ в качестве источника первичной ионизации
+		\item Знаем  $n_{0}$ $\Rightarrow Q_{0}$
+		\item Измеряем $ MPV(Q)$
+		\item $K = \cfrac{ MPV(Q)[Ch] \cdot 370 [e^-/Ch]}{Q_0[e^-]}$
 \end{itemize}}
 \end{minipage}%
-\column{0.5\linewidth}
+\column{0.4\linewidth}
+\vspace{10pt}
 \begin{minipage}[t][1\textheight]{\linewidth}
-\vspace*{20pt}
-\center \includegraphics[width=0.9\linewidth]{GEM_Sr_source.pdf}
+\center \includegraphics[width=1\textwidth]{Signal.png}
 
 \end{minipage}%
 \end{columns}
 \end{frame}
 
-\begin{frame}[t]
-\frametitle{Сигнальное событие}
 
-\begin{columns}
-	\begin{column}{0.45\paperwidth}
-		\small{
-		\begin{itemize}
-			\item Сигналы отдельных частиц(кластеры) \tikz[na] \coordinate (sig);
-			\item Кадр со смещенным ``нулём'' \tikz[na] \coordinate (frame);
-			\item Различный средний уровень каждого чипа \tikz[na] \coordinate (level);
-		\end{itemize}
-		}
-	\end{column}
-	\begin{column}{0.45\paperwidth}
-		\vspace*{10pt}
-		\includegraphics[width=1\textwidth]{Signal.png}
-		\begin{tikzpicture}[overlay]
-		%\draw[step=1.0,black,thin] (0,0) grid (7,7);
-		\draw[->,red,thick] (-1,4.2) -- (2,5.3);
-		\draw[->,red,thick] (-1,4.2) -- (1.5,4.5);
-		\draw[->,red,thick] (-1,4.2) -- (3.3,2.3);
-		\draw[->,blue,thick] (-1,3) -- (3,1.8);
-		\draw[->,green,thick] (-1,1.7) -- (4,1.5);
-		\draw[->,green,thick] (-1,1.7) -- (1.5,1.5);
-		\end{tikzpicture}
-	\end{column}
-\end{columns}
-\end{frame}
 
 \begin{frame}[t]
-\frametitle{Физический сдвиг нулевого уровня в кадре}
+\frametitle{Измерение коэффициента усиления GEM (обработка данных)}
 \vspace{0pt}
 \begin{columns}
 	\column{0.5\textwidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
 		\small{\begin{itemize}
-				\item Есть кадр со смещенным нулевым уровнем
-				\item 1-8 сигнальных каналов/60
-				\item $\langle Q_{noise}\rangle \neq 0 $
-				\item \textbf{Проблема:} как при вычислении среднего не учитывать сигнальные события?
-		\end{itemize}}
-	\end{minipage}%
-	\column{0.5\linewidth}
-	\begin{minipage}[t][1\textheight]{\linewidth}
-		%\vspace*{40pt}
-		\hspace*{5pt}
-		\centering\includegraphics[width=1.05\linewidth]{median_monitor.pdf}
-	
-		
-	\end{minipage}%
-\end{columns}
-\end{frame}
-
-\begin{frame}[t]
-\frametitle{Коррекция нулевого уровня в кадре}
-\vspace{0pt}
-\begin{columns}
-	\column{0.5\textwidth}
-	\begin{minipage}[t][1\textheight]{\linewidth}
-		\vspace{30pt}
-		\small{
-		\textbf{Решение:} медианный алгоритм
-		\begin{itemize}
-				\item Нахождение медианного значения заряда по кадру
-				\item $Q(Ch) = Q_{0}(Ch)- median$
-		\end{itemize}}
-	\end{minipage}%
-	\column{0.5\linewidth}
-	\begin{minipage}[t][1\textheight]{\linewidth}
-		\vspace*{10pt}
-		\centering \includegraphics[ width=0.9\linewidth]{median_hist_zoomed.pdf}
-	\end{minipage}%
-\end{columns}
-\end{frame}
-
-\begin{frame}[t]
-\frametitle{Результат применения алгоритма}
-\vspace{0pt}
-		\centering \includegraphics[height=0.4\textheight, width=0.7\linewidth]{median_hist_unbiased.pdf}
-		\includegraphics[height=0.4\textheight,width=0.7\linewidth]{median_hist_biased.pdf}
-\end{frame}
-
-\begin{frame}[t]
-\frametitle{Измерение коэффициента усиления (обработка данных)}
-\vspace{0pt}
-\begin{columns}
-	\column{0.5\textwidth}
-	\begin{minipage}[t][1\textheight]{\linewidth}
-		\small{\begin{itemize}
-				\item Сигналы с соседних каналов $\rightarrow$ кластер
-				\item $\Sigma Q_{sig}$ для кластера
-				\item Распределение по $Q_{sig}$
-				\item MPV $\rightarrow \langle Q_{sig} \rangle$
-				\item $\displaystyle K = \cfrac{\langle Q_{sig} \rangle}{n_{0}e^{-}}$
+				\item Группа сработавших каналов $\rightarrow$ кластер
+				\item $\Sigma Q$ для кластера
+				\item Распределение по заряду кластера для выборки
+				\item  $ MPV(Q)$ из аппроксимации
+				\item $\displaystyle K = \cfrac{MPV(Q)}{Q_0}$
 		\end{itemize}}
 	\end{minipage}%
 	\column{0.5\linewidth}
@@ -436,7 +342,7 @@
 \begin{frame}[t]
 \frametitle{Зависимость коэффициента усиления от напряжения}
 \vspace*{10pt}
-\centering \includegraphics[ width=0.75\linewidth]{Ampl_gr_log.pdf}
+\centering \includegraphics[ width=0.75\linewidth]{Ampl_gr.pdf}
 \end{frame}
 \begin{frame}[t]
 \frametitle{Анализ полученных результатов}
@@ -444,18 +350,69 @@
 	\column{0.5\textwidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
 		\small{\begin{itemize}
-				\item Максимальный $K \approx 52000$
+				\item Максимальный $K \approx 58 000$
 				\item При $K < 10000$ сигнал под шумами 
-				\item Экспоненциальный рост K c увеличением напряжения питания
-		\end{itemize}%ы
+				\item Экспоненциальный рост K c увеличением напряжения питания GEM
+		\end{itemize}%
 		Такое поведение K характерно для GEM, что является показателем правильной работы усиливающей структуры детектора}
 	\end{minipage}%
 	\column{0.5\linewidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
 		\vspace*{30pt}
-		\center \includegraphics[ width=1\linewidth]{Ampl_gr_log.pdf}
+		\center \includegraphics[ width=1\linewidth]{Ampl_gr.pdf}
 	\end{minipage}%
 \end{columns}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Измерение эффективности регистрации}
+\vspace{0pt}
+\begin{columns}
+	\column{0.4\textwidth}
+	\begin{minipage}[t][1\textheight]{\linewidth}
+		\small{\begin{itemize}
+				\item $N_{23} = \varepsilon_2 \varepsilon_3 N_0$
+				\item $N_{123} = \varepsilon_1 \varepsilon_2 \varepsilon_3 N_0$
+				\item $\varepsilon_1 = \cfrac {N_{123}}{N_{23}}$
+		\end{itemize}
+		\vspace{10pt}
+		Проблема: не учитывается геометрия детектора!}
+	\end{minipage}%
+	\column{0.6\linewidth}
+	\begin{minipage}[t][1\textheight]{\linewidth}
+		\centering \includegraphics[ width=0.9\linewidth]{Test_beam_photo.jpg}
+		\centering \includegraphics[ width=1\linewidth]{reg_eff_exp_scheme.png}
+	\end{minipage}%
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Учет геометрического фактора}
+\centering \includegraphics[ width=1\linewidth]{eff_monitor.pdf}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Измерение пространственного разрешения}	\centering \includegraphics[width=0.7\linewidth]{reg_eff_exp_scheme.png}
+		\small{\begin{itemize}
+				\item Экстраполируем трек в D1: $\displaystyle x_{1}^{*} = \frac{x_3- (x_2 -\Delta x_{23}) }{z_{23}}(z_{12}+z_{23})+ x_3 + \Delta x_{13}$
+				\item Распределение по величине $(x_1 - x_{1}^{*})$
+				\item Пространственное разрешение --- $\sigma$ из аппроксимации гауссовой функцией
+				\end{itemize}}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Обработка полученных данных}
+		\centering \includegraphics[ width=1\linewidth]{sp_res_monitor.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{Пространственное разрешение по горизонтали}
+	\centering \includegraphics[ width=0.8\linewidth]{x_sp_res.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{Пространственное разрешение по вертикали}
+		\centering \includegraphics[ width=0.8\linewidth]{y_sp_res.pdf}
 \end{frame}
 \begin{frame}[t]
 \frametitle{Заключение}
@@ -467,9 +424,7 @@
 \end{itemize}
 \end{frame}
 \begin{frame}
-\begin{center}
-Спасибо за внимание!
-\end{center}
+\maketitle
 \end{frame}
 \backupbegin
 \begin{frame}
@@ -499,10 +454,96 @@
 
 \end{frame}
 
+\begin{frame}[c]
+\frametitle{Backup: Шумовое событие}
+\includegraphics[width=1\linewidth]{Noise_no_filtering.png}
+\hspace*{20pt}\tiny{0--59 --- Чип 1}\hspace*{30pt}\tiny{68--127 --- Чип 2}
+\end{frame}
+
 \begin{frame}[t]
 \frametitle{Backup: Влияние медианного алгоритма}
 \vspace*{10pt}
 \centering \includegraphics[ width=0.9\linewidth]{Cluster_ch_hist.pdf}
 \end{frame}
+\begin{frame}[t]
+\frametitle{Сигнальное событие ($\mathrm{^{90}Sr}$)}
+
+\begin{columns}
+	\begin{column}{0.45\paperwidth}
+		\small{
+			\begin{itemize}
+				\item Сигналы  от отдельных частиц \tikz[na] \coordinate (sig);
+				\item Кадр со смещенным ``нулём'' \tikz[na] \coordinate (frame);
+			\end{itemize}
+			\vspace{10pt}
+		}
+	\end{column}
+	\begin{column}{0.45\paperwidth}
+		\vspace*{10pt}
+		\includegraphics[width=1\textwidth]{Signal.png}
+		\begin{tikzpicture}[overlay]
+		%\draw[step=1.0,black,thin] (0,0) grid (7,7);
+		\draw[->,red,thick] (-1,4.2) -- (2,5.3);
+		\draw[->,red,thick] (-1,4.2) -- (1.5,4.5);
+		\draw[->,red,thick] (-1,4.2) -- (3.3,2.3);
+		\draw[->,blue,thick] (-1,2.95) -- (3,1.8);
+		\end{tikzpicture}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Физический сдвиг нулевого уровня в кадре}
+\vspace{0pt}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{minipage}[t][1\textheight]{\linewidth}
+	\small{\begin{itemize}
+			\item Есть кадр со смещенным нулевым уровнем
+			\item 1-8 сигнальных каналов/60
+			\item $\langle Q_{noise}\rangle \neq 0 $
+			\item \textbf{Проблема:} как при вычислении среднего не учитывать сигнальные события?
+	\end{itemize}}
+\end{minipage}%
+\column{0.5\linewidth}
+\begin{minipage}[t][1\textheight]{\linewidth}
+	%\vspace*{40pt}
+	\hspace*{5pt}
+	\centering\includegraphics[width=1.05\linewidth]{median_monitor.pdf}
+	
+	
+\end{minipage}%
+\end{columns}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Коррекция нулевого уровня в кадре}
+\vspace{0pt}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{minipage}[t][1\textheight]{\linewidth}
+\vspace{30pt}
+\small{
+	\textbf{Решение:} медианный алгоритм
+	\begin{itemize}
+		\item Нахождение медианного значения заряда по кадру
+		\item $Q(Ch) = Q_{0}(Ch)- median$
+\end{itemize}}
+\end{minipage}%
+\column{0.5\linewidth}
+\begin{minipage}[t][1\textheight]{\linewidth}
+\vspace*{10pt}
+\centering \includegraphics[ width=0.9\linewidth]{median_hist_zoomed.pdf}
+\end{minipage}%
+\end{columns}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Результат применения алгоритма}
+\vspace{0pt}
+\centering \includegraphics[height=0.4\textheight, width=0.7\linewidth]{median_hist_unbiased.pdf}
+\includegraphics[height=0.4\textheight,width=0.7\linewidth]{median_hist_biased.pdf}
+\end{frame}
 \backupend
 \end{document} 
+
