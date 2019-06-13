@@ -7,6 +7,11 @@
 \usepackage{hepunits}
 \usepackage{tikz}
 \usepackage{beamerthemesplit}
+
+\setbeamerfont{itemize/enumerate body}{}
+\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\small}
+
 \usetikzlibrary{arrows,shapes,backgrounds,decorations.pathmorphing}
 
 \usepackage{graphicx}
@@ -302,7 +307,7 @@
 \begin{minipage}[t][1\textheight]{\linewidth}
 \small{\begin{itemize}
 		\item $\mathrm{^{90}Sr}$ в качестве источника первичной ионизации
-		\item Знаем  $n_{0}$ $\Rightarrow Q_{0}$
+		\item Знаем  $n_{0}$ $\Rightarrow Q_{0}$ ($n_{0} \approx 26\,e^-$)
 		\item Измеряем $ MPV(Q)$
 		\item $K = \cfrac{ MPV(Q)[Ch] \cdot 370 [e^-/Ch]}{Q_0[e^-]}$
 \end{itemize}}
@@ -391,6 +396,11 @@
 \centering \includegraphics[ width=1\linewidth]{eff_monitor.pdf}
 \end{frame}
 
+\begin{frame}
+\frametitle{Эффективность регистрации}
+\centering \includegraphics[ width=0.9\linewidth]{eff2K.pdf}
+\end{frame}
+
 \begin{frame}[t]
 \frametitle{Измерение пространственного разрешения}	\centering \includegraphics[width=0.7\linewidth]{reg_eff_exp_scheme.png}
 		\small{\begin{itemize}
@@ -417,17 +427,40 @@
 \begin{frame}[t]
 \frametitle{Заключение}
 \begin{itemize}
-	\item Разрабатывается прототип детектора для установки <<Лазерный поляриметр>>
-	\item Уже получены данные об уровне шумов: $\sigma_{n} \approx 5700 e^{-}$
-	\item и коэффициенте усиления GEM: $K_{max} \approx 52000$
-	\item \color{calmRed} {Необходимо исследование пространственного разрешения и эффективности регистрации на выведенном пучке}
+	\item Вводится в эксплуатацию прототип координатного детектора для  <<Лазерного поляриметра>>
+	\item В ходе работы измерены его физические параметры: 
+	\begin{itemize}
+		\setlength\itemsep{0.5em}
+		\item Уровень шумов: $\sigma_{n} \approx 5700 e^{-}$
+		\item Коэффициент усиления GEM: $K_{max} \approx 58000$
+		\item Эффективность регистрации $\varepsilon = (87 \div 96) \pm 1 \%$
+		\item Пространственное разрешение:
+		\begin{itemize}
+			\setlength\itemsep{0.5em}
+			\item $\sigma_x = 0.44\pm0.01(\text{стат.})$\,мм
+			\item $\sigma_y = 0.251\pm0.009(\text{стат.})\pm0.017(\text{сист.})$\,мм
+		\end{itemize}
+	\end{itemize}
 \end{itemize}
 \end{frame}
+
 \begin{frame}
 \maketitle
 \end{frame}
 \backupbegin
-\begin{frame}
+
+\begin{frame}[t]
+\frametitle{Backup: Наиболее вероятное значение потерь энергии в детекторе}
+Для $2.2~\MeV~e^{-}$:
+\newline
+\newline $\kappa = \cfrac{dE/dx_{rad}}{dE/dx_{ion}}= \cfrac{ Z E[\MeV] }{600}.$
+\newline 
+\newline Используем Ar: $E_{crit} = 33.3~\MeV > 2.2 \MeV~\Rightarrow$ потери ионизационные.
+\newline
+\newline $\Delta_p = \xi\biggl[ln \bigg(\cfrac{ m_ec^2T\beta^2\gamma^2}{2I^2}\bigg) + ln\bigg(\frac{\xi}{I}\bigg) + j - \beta^2 \biggr] = 685~\eV$
+
+\end{frame}
+\begin{frame} 
 \frametitle{Backup: пьедесталы АЦП}
 \begin{center}
 	\includegraphics[ width=0.9\linewidth]{pedestal_map.pdf}
@@ -440,19 +473,7 @@
 %	\includegraphics[ width=0.9\linewidth]{schedule.png}
 %\end{center}
 %\end{frame}
-\begin{frame}[t]
-\frametitle{Backup: Потери энергии в детекторе}
-Для $2.2~\MeV~e^{-}$:
-\newline
-\newline $\kappa = \cfrac{dE/dx_{rad}}{dE/dx_{ion}}= \cfrac{ Z E[\MeV] }{600}.$
-\newline 
-\newline Используем Ar: $E_{crit} = 33.3~\MeV > 2.2 \MeV~\Rightarrow$ потери ионизационные.
-\newline
-\newline $X_0(Ar)=117$м,
-\newline
-\newline $\cfrac{dE}{dx} = \cfrac{2\pi N_0 e^4 Z\rho}{m_e c^2 \beta^2 A}\biggl[ln\cfrac{ m_ec^2E}{I^2}\cfrac{\beta^2}{2(1-\beta^2)} + f_{corr}(\beta)\biggr]$
 
-\end{frame}
 
 \begin{frame}[c]
 \frametitle{Backup: Шумовое событие}
@@ -460,11 +481,7 @@
 \hspace*{20pt}\tiny{0--59 --- Чип 1}\hspace*{30pt}\tiny{68--127 --- Чип 2}
 \end{frame}
 
-\begin{frame}[t]
-\frametitle{Backup: Влияние медианного алгоритма}
-\vspace*{10pt}
-\centering \includegraphics[ width=0.9\linewidth]{Cluster_ch_hist.pdf}
-\end{frame}
+
 \begin{frame}[t]
 \frametitle{Сигнальное событие ($\mathrm{^{90}Sr}$)}
 
@@ -493,7 +510,7 @@
 \end{frame}
 
 \begin{frame}[t]
-\frametitle{Физический сдвиг нулевого уровня в кадре}
+\frametitle{Backup: Физический сдвиг нулевого уровня в кадре}
 \vspace{0pt}
 \begin{columns}
 \column{0.5\textwidth}
@@ -517,7 +534,7 @@
 \end{frame}
 
 \begin{frame}[t]
-\frametitle{Коррекция нулевого уровня в кадре}
+\frametitle{Backup: Коррекция нулевого уровня в кадре}
 \vspace{0pt}
 \begin{columns}
 \column{0.5\textwidth}
@@ -539,11 +556,18 @@
 \end{frame}
 
 \begin{frame}[t]
-\frametitle{Результат применения алгоритма}
+\frametitle{Backup: работа алгоритма}
 \vspace{0pt}
 \centering \includegraphics[height=0.4\textheight, width=0.7\linewidth]{median_hist_unbiased.pdf}
 \includegraphics[height=0.4\textheight,width=0.7\linewidth]{median_hist_biased.pdf}
 \end{frame}
+
+\begin{frame}[t]
+\frametitle{Backup: влияние медианного алгоритма на распределение по заряду кластера }
+\vspace*{10pt}
+\centering \includegraphics[ width=0.9\linewidth]{Cluster_ch_hist.pdf}
+\end{frame}
+
 \backupend
 \end{document} 
 
