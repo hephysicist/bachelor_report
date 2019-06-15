@@ -58,7 +58,7 @@
 \emph{Докладчик:}~Степан Алексеевич Захаров\\%
 \emph{Научный руководитель:}~к.ф.-м.н.~Иван~Борисович~Николаев\\%
 \emph{Научный консультант:}~д.ф.-м.н.~Лев~Исаевич~Шехтман}}
-\date{\small{13.06.2019}}
+\date{\small{17.06.2019}}
 
 \tikzstyle{every picture}+=[remember picture]
 \tikzstyle{na} = [baseline=-.5ex]
@@ -88,31 +88,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}
-\frametitle{Метод резонансной деполяризации}
-	\vspace{30pt}
-	\begin{columns}
-		\column{0.4\textwidth}
-		\begin{minipage}[t][1\textheight]{\linewidth}
-				\small{\flushleft	Впервые реализован в ИЯФ~СO~РАН в 1974 г. 
-				\begin{itemize}
-					\item $\Delta E/E \geqslant 10^{-6}$
-					\item $\omega_r = \omega_s \biggl(1+ \gamma \cfrac{\mu'}{\mu}\biggr)$
-					\item Условие резонанса: $\omega_s  = k \omega_r \pm \omega_d$
-					\item Измеряем: $\Delta y = \cfrac{\omega_0}{2m_e}PL\Delta V$
-				\end{itemize}}
-		\end{minipage}%
-		\column{0.6\linewidth}
-		\begin{minipage}[t][1\textheight]{\linewidth}
-			\begin{picture}(10,10)(0,120)
-				\includegraphics[width=1\linewidth]{mrd-lsrp.png}
-			\end{picture}
-		\end{minipage}%
-	\end{columns}
-	\begin{center}
-		
-	\end{center}
-\end{frame}
+
 
 \begin{frame}
 	\frametitle{Мотивация}
@@ -189,17 +165,6 @@
 \end{frame}
 
 \begin{frame}[t]
-\frametitle{Ключевые параметры детектора для <<Лазерного поляриметра>>}
-		\begin{itemize}
-				\item \color{gray}{\textit{Уровень шумов:} шумы АЦП, кросс-токи, сторонние наводки}
-				\item  \color{gray}{\textit{Коэффициент усиления:} напряжение на GEM, геометрия усиливающей структуры}
-				\item  \color{black}{\textit{Эффективность регистрации:} напряжение на GEM, размеры чувствительной области
-				\item  \textit{Пространственное разрешение:} геометрия регистрирующей структуры, напряжение на GEM}
-		\end{itemize}
-\end{frame}
-
-
-\begin{frame}[t]
 \frametitle{Прототип детектора}
 		\begin{minipage}[c]{0.59\linewidth}
 			\centering
@@ -221,7 +186,7 @@
 	\begin{minipage}[t][1\textheight]{\linewidth}
 		\centering \includegraphics[width=6.6cm, height = 4cm]{DAQ.pdf}
 		\small{\begin{itemize}
-				\item Одно событие: 128\,каналов\,$\times$\,100\,кадров 
+				\item Событие c одной front-end платы: 128\,каналов\,$\times$\,100\,кадров 
 				\item 1 файл --- $10^4$~событий (640 MB)
 		\end{itemize}}
 	\end{minipage}%
@@ -233,6 +198,10 @@
 		
 	\end{minipage}%
 \end{columns}\end{frame}
+
+\begin{frame}[c]
+\centering \large {Исследование физических характеристик детектора}
+\end{frame}
 
 \begin{frame}[c]
 \frametitle{Измерение уровня шумов}
@@ -329,12 +298,12 @@
 \begin{columns}
 	\column{0.5\textwidth}
 	\begin{minipage}[t][1\textheight]{\linewidth}
+		\vspace{1pt}
 		\small{\begin{itemize}
 				\item Группа сработавших каналов $\rightarrow$ кластер
 				\item $\Sigma Q$ для кластера
 				\item Распределение по заряду кластера для выборки
 				\item  $ MPV(Q)$ из аппроксимации
-				\item $\displaystyle K = \cfrac{MPV(Q)}{Q_0}$
 		\end{itemize}}
 	\end{minipage}%
 	\column{0.5\linewidth}
@@ -348,25 +317,6 @@
 \frametitle{Зависимость коэффициента усиления от напряжения}
 \vspace*{10pt}
 \centering \includegraphics[ width=0.75\linewidth]{Ampl_gr.pdf}
-\end{frame}
-\begin{frame}[t]
-\frametitle{Анализ полученных результатов}
-\begin{columns}
-	\column{0.5\textwidth}
-	\begin{minipage}[t][1\textheight]{\linewidth}
-		\small{\begin{itemize}
-				\item Максимальный $K \approx 58 000$
-				\item При $K < 10000$ сигнал под шумами 
-				\item Экспоненциальный рост K c увеличением напряжения питания GEM
-		\end{itemize}%
-		Такое поведение K характерно для GEM, что является показателем правильной работы усиливающей структуры детектора}
-	\end{minipage}%
-	\column{0.5\linewidth}
-	\begin{minipage}[t][1\textheight]{\linewidth}
-		\vspace*{30pt}
-		\center \includegraphics[ width=1\linewidth]{Ampl_gr.pdf}
-	\end{minipage}%
-\end{columns}
 \end{frame}
 
 \begin{frame}[t]
@@ -432,7 +382,7 @@
 	\begin{itemize}
 		\setlength\itemsep{0.5em}
 		\item Уровень шумов: $\sigma_{n} \approx 5700 e^{-}$
-		\item Коэффициент усиления GEM: $K_{max} \approx 58000$
+		\item Коэффициент усиления GEM: $K_{max} \approx 52000$
 		\item Эффективность регистрации $\varepsilon = (87 \div 96) \pm 1 \%$
 		\item Пространственное разрешение:
 		\begin{itemize}
@@ -448,6 +398,39 @@
 \maketitle
 \end{frame}
 \backupbegin
+\begin{frame}
+\frametitle{Backup: принцип работы лазерного поляриметра}
+\begin{columns}
+	\column{0.4\textwidth}
+	\begin{minipage}[c][0.5\textheight]{\linewidth}
+		\vspace{15pt}
+		\small{Измеряемая величина: \\ \centering $\Delta y = \cfrac{\omega_0}{2m_e}PL\Delta V$
+			}
+	\end{minipage}%
+	\column{0.6\linewidth}
+	\begin{minipage}[t][0.5\textheight]{\linewidth}
+		\includegraphics[width=1\linewidth]{mrd-lsrp.png}
+	\end{minipage}%
+\end{columns}
+\begin{center}
+	$d \sigma(\vec{\xi}, \vec{\zeta}) = d\sigma(\vec{\xi}) + \frac{1}{2}r_e^2 \biggl(\frac{\omega'}{\omega}\biggr)^2 (\vec{f}\cdot \vec{\zeta})Vdo'$
+\end{center}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Backup: метод резонансной деполяризации}
+\centering \includegraphics[width=0.8\linewidth]{rd_exp.pdf}
+\vspace{15pt}
+\begin{columns}
+		\small
+	\column{0.33\linewidth}
+				$\mathcal{P} = G\zeta_0(1-e^{-t/G\tau_p}),$			
+	\column{0.33\linewidth}
+		$\omega_r = \color{calmRed}{\omega_s} \color{black}\biggl(1+ \gamma \cfrac{q'}{q_0}\biggr),$	
+	\column{0.33\linewidth}
+		условие резонанса: $\color{calmRed}{\omega_s}\color{black}  = k \omega_r \pm \omega_d$
+\end{columns}
+\end{frame}
 
 \begin{frame}[t]
 \frametitle{Backup: Наиболее вероятное значение потерь энергии в детекторе}
@@ -566,6 +549,16 @@
 \frametitle{Backup: влияние медианного алгоритма на распределение по заряду кластера }
 \vspace*{10pt}
 \centering \includegraphics[ width=0.9\linewidth]{Cluster_ch_hist.pdf}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Ключевые параметры детектора для <<Лазерного поляриметра>>}
+\begin{itemize}
+	\item \color{gray}{\textit{Уровень шумов:} шумы АЦП, кросс-токи, сторонние наводки}
+	\item  \color{gray}{\textit{Коэффициент усиления:} напряжение на GEM, геометрия усиливающей структуры}
+	\item  \color{black}{\textit{Эффективность регистрации:} напряжение на GEM, размеры чувствительной области
+		\item  \textit{Пространственное разрешение:} геометрия регистрирующей структуры, напряжение на GEM}
+\end{itemize}
 \end{frame}
 
 \backupend
